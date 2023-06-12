@@ -1,0 +1,38 @@
+<html>
+    
+
+<input type = "text" name = "mFName" id = "mFName" size = "30"
+style = "display: none; background-color: Black; font-weight:bold;"
+disabled="disabled" >
+
+<FORM name = "frm1" onsubmit = "return CheckForm();">
+    <table border = "1" align = "center" >
+    <tr>
+        <td>פרטי שם <td>
+<td><input type = "text" name = "fName" id = "fName"></td>
+
+<td>
+    <input type = "text" name = "mFName" id = "mFName" size = "30"
+    style = "display: none; background-color: Black;
+    
+    font-weight:bold;"
+    disabled="disabled" />
+    </td>
+    </tr>
+    <body align="center">
+        <input type="submit" >
+        </body>
+
+<script language = "JavaScript">
+function CheckForm()
+{
+    var fName = document.getElementById("fName").value;
+if (fName.length < 2)
+{
+    alert("no")
+return false;
+}
+}
+</script>
+
+</html>
