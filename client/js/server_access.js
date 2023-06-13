@@ -26,5 +26,5 @@ function get_user(username) {
         }
 
 
-// select('eladpress', 'elad2002').then((res) => console.log(res))
+//select('eladpress', 'elad2002').then((res) => console.log(res))
 export {test, select, test1 ,disconnenct , get_user}

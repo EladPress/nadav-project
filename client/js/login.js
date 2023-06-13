@@ -4,6 +4,7 @@ function checkForm(){
     return select('eladpress', 'elad2002')
    
 }
+// checkForm()
 if (select!=err){
     window.location.href = "../HTML/index.html"
 }
