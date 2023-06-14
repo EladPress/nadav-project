@@ -1,15 +1,17 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import mysql.connector
 import json
 
 mydb = mysql.connector.connect(
     host="127.0.0.1",
     user="root",
-    password="nadav1",
+    password="Test@3092",
     database="NadavDB",
 )
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods = ["GET"])
 def main():

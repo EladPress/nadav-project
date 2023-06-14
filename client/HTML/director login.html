@@ -1,7 +1,7 @@
 </html>
 <head>
     <h2 ><a href="./Home.html">back</a></h2>
-    
+    <script language="JavaScript" type="module" src="../js/login.js"></script>
 </head>
 <!-- <body dir="ltr">
 <h2 ><a href="./Home.html">back</a></h2>
@@ -19,45 +19,33 @@
     
         
          
-        <script language="JavaScript" type="module">
+        <!-- <script language="JavaScript" type="module" src="../js/login.js">
             let button = document.getElementById("submit").onclick = () => {
-                console.log('works')
+                //console.log('works')
                 select('eladpress', 'elad2002')
+                .then((res) => {})
             }
             let user ={
                 
             }
             console.log(user)
             let source = "http://127.0.0.1:8081"
-            console.log('script')
             function select(username, password) {
                 console.log('logging in')
-                fetch(source + '/select/' + username + '/' + password, {mode: 'no-cors', method: 'POST'})
-                    .then(() => {
-                        //window.location.href = "../HTML/index.html"
-                        
-                    })
-                fetch(source + '/get_user', {mode: 'no-cors', method: 'GET'})
-                    .then((response) => response.json())
-                    .then((res) => {
-                        console.log('GETUSER')
-                        console.log(res)
-                        user = res
-                    })
-                    //jaskdjasld
-                    // .then((response) => response.json())
-                    // .then((res) => {
-                    //     console.log(res)
-                    //     return res})
+                return fetch(source + '/select/' + username + '/' + password)
+                    .then((res) => {return res.json()})
+                    // window.location.href = "../HTML/index.html"
             }
-            //select('eladpress', 'elad2002')
+            fetch(source + '/get_user')
+            .then((response) => response.json())
+            .then((res) => {console.log(res)})
             function checkForm(){
                 return select('eladpress', 'elad2002')
             }
             // if (select!=err){
             //     window.location.href = "../HTML/index.html"
             // }
-        </script>
+        </script> -->
         
     <!-- </form> -->
     </body>
