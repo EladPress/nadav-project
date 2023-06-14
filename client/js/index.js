@@ -1,14 +1,17 @@
-const http = require('http')
-// const options = {
-//     host: '127.0.0.1:8081',
-//     path: '/'
-// }
+import {get_user,disconnect} from './server_access.js'
 
-var request = http.get({
-    host: '127.0.0.1:8081',
-    path: '/'
-}, function(res) {
-    
-})
+get_user()
+    .then((res) => {
+        alert('hello ' + res['username'])
+        console.log(res)
 
-console.log('hello')
+    })
+
+let button = document.getElementById("disconnect").onclick = () => {
+
+    disconnect()
+    .then((res) => {
+        console.log(res)
+        window.location.href = "../HTML/Home.html"
+    })   
+}

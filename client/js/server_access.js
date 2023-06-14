@@ -11,15 +11,17 @@ function select(username, password) {
     return fetch(source + '/select/' + username + '/' + password)
         .then((response) => response.json())
 }
-function get_user(username) {
-    return fetch(source + '/get_user/' + username)
+function get_user() {
+    return fetch(source + '/get_user')
         .then((response) => response.json())
 }
-function disconnenct(username) {
-    return fetch(source + '/disconnenct/' )
-        .then((response) => response.json())
+function disconnect() {
+    return fetch(source + '/disconnect' )
+}
+function insert_user() {
+    return fetch(source + '/insert_user' )
 }
 
 
 //select('eladpress', 'elad2002').then((res) => console.log(res))
-export {test, select, disconnenct, get_user}
+export {test, select, disconnect, get_user}
