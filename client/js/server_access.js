@@ -18,10 +18,10 @@ function get_user() {
 function disconnect() {
     return fetch(source + '/disconnect' )
 }
-function insert_user() {
-    return fetch(source + '/insert_user' )
+function insert_user(username, password) {
+    return fetch(source + '/insert_user/' + username + '/' + password)
 }
 
 
 //select('eladpress', 'elad2002').then((res) => console.log(res))
-export {test, select, disconnect, get_user}
+export {test, select, disconnect, get_user,insert_user}

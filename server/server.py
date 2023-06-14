@@ -57,10 +57,10 @@ def select(username: str, password: str):
         return 'No user found!'
         
 
-@app.route('/insert_user/<string:username>/<string:password>/<int:manager>', methods = ['POST', 'GET'])
-def insert_user(username : str, password : str, manager : int):
+@app.route('/insert_user/<string:username>/<string:password>', methods = ['POST', 'GET'])
+def insert_user(username : str, password : str):
     mycursor = mydb.cursor()
-    mycursor.execute("insert into Users(username, password, manager) values('{}', '{}', '{}')".format(username, password, manager))
+    mycursor.execute("insert into Users(username, password, manager) values('{}', '{}', 0)".format(username, password))
     mydb.commit()
     return "Entered {} to DataBase".format(username)
    
