@@ -20,10 +20,10 @@ function get_user(username) {
     return fetch(source + '/get_user/' + username)
         .then((response) => response.json())
     }
-    function disconnenct(username) {
-        return fetch(source + '/disconnenct/' )
-            .then((response) => response.json())
-        }
+function disconnenct(username) {
+    return fetch(source + '/disconnenct/' )
+        .then((response) => response.json())
+}
 
 
 //select('eladpress', 'elad2002').then((res) => console.log(res))

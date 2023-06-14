@@ -1,0 +1,51 @@
+</html>
+<head>
+    <h2 ><a href="./Home.html">back</a></h2>
+    
+</head>
+<!-- <body dir="ltr">
+<h2 ><a href="./Home.html">back</a></h2>
+    </body> -->
+    <body align="center">
+        <label for = "username"> username:</label>
+        <input type="text" name="username" id="username">
+        <br/> <br/>
+        <label for = "password"> Password:</label>
+            <input type="password" name="password" id="password"> 
+            <br/></br>
+        
+        <input type="submit" id="submit">submit</input>
+            
+    
+        
+         
+        <script language="JavaScript" type="module">
+            let button = document.getElementById("submit").onclick = () => {
+                //console.log('works')
+                select('eladpress', 'elad2002')
+                .then((res) => {console.log(res)})
+            }
+            let user ={
+                
+            }
+            console.log(user)
+            let source = "http://127.0.0.1:8081"
+            function select(username, password) {
+                console.log('logging in')
+                return fetch(source + '/select/' + username + '/' + password)
+                    .then((res) => {return res.json()})
+                    // window.location.href = "../HTML/index.html"
+            }
+            // select('eladpress', 'elad2002').then((res) => {console.log(res)})
+            function checkForm(){
+                return select('eladpress', 'elad2002')
+            }
+            // if (select!=err){
+            //     window.location.href = "../HTML/index.html"
+            // }
+        </script>
+        
+    <!-- </form> -->
+    </body>
+        
+    </html>       
