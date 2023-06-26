@@ -15,6 +15,10 @@ function get_user() {
     return fetch(source + '/get_user')
         .then((response) => response.json())
 }
+function selectAll() {
+    return fetch(source + '/selectAll') 
+        .then((res) => res.json())
+}
 function disconnect() {
     return fetch(source + '/disconnect' )
 }
@@ -24,4 +28,4 @@ function insert_user(username, password) {
 
 
 //select('eladpress', 'elad2002').then((res) => console.log(res))
-export {test, select, disconnect, get_user,insert_user}
+export {test, select, disconnect, get_user,insert_user, selectAll}

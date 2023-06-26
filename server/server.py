@@ -39,8 +39,23 @@ def disconnect():
     file.write(str(json.dumps(dic)))
     return 'disconnected'
 
+@app.route('/selectAll', methods =['POST', 'GET'])
+def select():
+    mycursor = mydb.cursor()
+    mycursor.execute("select * from users")
+    result = list(mycursor.fetchall())
+    users = []
+    if len(result) > 0:
+        for i in result:
+            users.append({
+                'username': i[0],
+                'password': i[1],
+                'manager': i[2],
+            })
+    return jsonify(users)
+
 @app.route('/select/<string:username>/<string:password>', methods =['POST', 'GET'])
-def select(username: str, password: str):
+def selectAll(username: str, password: str):
     mycursor = mydb.cursor()
     mycursor.execute("select * from users where username = '{}' and password = '{}'".format(username, password))#,"password = '{}'".format(password))
     result = list(mycursor.fetchall()[0])
