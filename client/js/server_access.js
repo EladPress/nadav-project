@@ -25,7 +25,11 @@ function disconnect() {
 function insert_user(username, password) {
     return fetch(source + '/insert_user/' + username + '/' + password)
 }
+function delete_user(username) {
+    return fetch(source + '/delete_user/' + username) 
+    .then(() => {location.reload();})
+}
 
 
 //select('eladpress', 'elad2002').then((res) => console.log(res))
-export {test, select, disconnect, get_user,insert_user, selectAll}
+export {test, select, disconnect, get_user,insert_user, selectAll,delete_user}

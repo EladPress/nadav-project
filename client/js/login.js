@@ -8,8 +8,13 @@ let button = document.getElementById("submit").onclick = () => {
     console.log(typeof password)
     console.log(password)
     select(username, password)
-    .then(() => {
+    .then((res) => {
+        if (res['code'] == "found"){
         window.location.href = "../HTML/index.html"
+       }
+       else{
+        alert("error")
+       }
         //console.log(res)
         
     })

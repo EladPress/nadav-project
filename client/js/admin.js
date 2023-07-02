@@ -18,14 +18,48 @@
 // }
 //false
 //true
-import {get_user, selectAll} from './server_access.js'
+import {get_user, selectAll, delete_user} from './server_access.js'
 
 get_user()
 
 selectAll()
     .then((res) => {
-        console.log(res)
+        // console.log(res.length)
+        let table = document.getElementById('table')
+        for(let i = 0; i < res.length; i++)
+        {
+            let row = table.insertRow(i+1)
+            let cells = []
+
+            cells.push(row.insertCell(0))
+            cells[0].innerHTML = res[i]['username']
+
+            cells.push(row.insertCell(1))
+            cells[1].innerHTML = res[i]['password']
+
+            cells.push(row.insertCell(2))
+            cells[2].innerHTML = res[i]['manager']
+
+            cells.push(row.insertCell(3))
+            let button = document.createElement('button')
+            button.innerHTML = 'delete user'
+            cells[3].appendChild(button)
+            button.onclick = () => {
+                // alert(res[i]['username'])
+                // alert(i)
+                let username = res[i]['username']
+                delete_user(username)
+            }
+            //cells[3] = document.createElement('button')
+        }
     })
+
+
+let table = document.getElementById('table')
+
+
+
+
 // function loadData() {
     // console.log('init');
 //     if (user.isAdmin) {

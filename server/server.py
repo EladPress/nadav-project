@@ -40,7 +40,7 @@ def disconnect():
     return 'disconnected'
 
 @app.route('/selectAll', methods =['POST', 'GET'])
-def select():
+def selectAll():
     mycursor = mydb.cursor()
     mycursor.execute("select * from users")
     result = list(mycursor.fetchall())
@@ -55,12 +55,14 @@ def select():
     return jsonify(users)
 
 @app.route('/select/<string:username>/<string:password>', methods =['POST', 'GET'])
-def selectAll(username: str, password: str):
+def select(username: str, password: str):
     mycursor = mydb.cursor()
     mycursor.execute("select * from users where username = '{}' and password = '{}'".format(username, password))#,"password = '{}'".format(password))
-    result = list(mycursor.fetchall()[0])
+    result = mycursor.fetchall()
     if len(result) > 0:
+        result = list(result[0])
         dic = {
+            'code': 'found',
             'username': result[0],
             'password': result[1],
             'manager': result[2],
@@ -69,13 +71,20 @@ def selectAll(username: str, password: str):
         file.write(str(json.dumps(dic)))
         return jsonify(dic)
     else:
-        return 'No user found!'
+        return {'code': 'not found!'}
         
 
 @app.route('/insert_user/<string:username>/<string:password>', methods = ['POST', 'GET'])
 def insert_user(username : str, password : str):
     mycursor = mydb.cursor()
     mycursor.execute("insert into Users(username, password, manager) values('{}', '{}', 0)".format(username, password))
+    mydb.commit()
+    return "Entered {} to DataBase".format(username)
+
+@app.route('/delete_user/<string:username>', methods = ['POST', 'GET'])
+def delete_user(username : str,):
+    mycursor = mydb.cursor()
+    mycursor.execute("DELETE FROM Users WHERE username='{}'".format(username))
     mydb.commit()
     return "Entered {} to DataBase".format(username)
    
